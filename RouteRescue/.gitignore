@@ -1,6 +1,8 @@
 node_modules/
-dist/
 .env
-*.log
-.DS_Store
-backend/src/data/*.tmp
+.env.*
+!.env.example
+dist/
+build/
+coverage/
+../.DS_Store

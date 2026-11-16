@@ -1,26 +1,55 @@
-import {BrowserRouter,Routes,Route as R} from 'react-router-dom';
-import {AuthProvider} from './context/AuthContext';
-import {AppLayout} from './components/Shell';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
+import { AppLayout } from './components/Shell';
 import Protected from './components/Protected';
 import ScrollToTop from './components/ScrollToTop';
 
 import Home from './pages/Home';
-import {Login,Register} from './pages/Auth';
+import { Login, Register } from './pages/Auth';
 import Planner from './pages/Planner';
-import {Dashboard,History,ItineraryDetail,Profile,Feedback} from './pages/Pages';
+import PopularJourneys from './pages/PopularJourneys';
+import Destinations from './pages/Destinations';
+import Dashboard from './pages/Dashboard';
+import { History, ItineraryDetail, Profile, Feedback } from './pages/Pages';
 import Admin from './pages/Admin';
 
+export default function App() {
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <ThemeProvider>
+        <AuthProvider>
+          <AppLayout>
+            <Routes>
+              {/* Public Routes */}
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/popular-journeys" element={<PopularJourneys />} />
+              <Route path="/destinations" element={<Destinations />} />
 
+              {/* Authenticated Routes */}
+              <Route element={<Protected />}>
+                <Route path="/planner" element={<Planner />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/itinerary" element={<ItineraryDetail />} />
+                <Route path="/history" element={<History />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/feedback" element={<Feedback />} />
+              </Route>
 
-export default function App(){
-    return <BrowserRouter><ScrollToTop/><AuthProvider><AppLayout><Routes><R path="/" element={<Home/>}/>
-    <R path="/login" element={<Login/>}/><R path="/register" element={<Register/>}/>
-    <R element={<Protected/>}><R path="/dashboard" element={<Dashboard/>}/>
-    <R path="/planner" element={<Planner/>}/>
-    <R path="/itinerary" element={<ItineraryDetail/>}/>
-    <R path="/history" element={<History/>}/>
-    <R path="/profile" element={<Profile/>}/>
-    <R path="/feedback" element={<Feedback/>}/></R>
-    <R element={<Protected admin/>}>
-    <R path="/admin" element={<Admin/>}/>
-    </R><R path="*" element={<Home/>}/></Routes></AppLayout></AuthProvider></BrowserRouter>}
+              {/* Admin Only Routes */}
+              <Route element={<Protected admin />}>
+                <Route path="/admin" element={<Admin />} />
+              </Route>
+
+              {/* Fallback */}
+              <Route path="*" element={<Home />} />
+            </Routes>
+          </AppLayout>
+        </AuthProvider>
+      </ThemeProvider>
+    </BrowserRouter>
+  );
+}

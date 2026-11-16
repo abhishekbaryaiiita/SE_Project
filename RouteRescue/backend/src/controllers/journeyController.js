@@ -14,7 +14,10 @@ export async function plan(req, res) {
     return res.status(400).json({ message: 'Invalid journey details.' });
   }
 
-  if (!b.source || !b.destination || b.source === b.destination) {
+  const source = b.source.trim();
+  const destination = b.destination.trim();
+
+  if (!source || !destination || source.toLowerCase() === destination.toLowerCase()) {
     return res.status(400).json({
       message: 'Choose two different cities.'
     });
@@ -32,19 +35,48 @@ export async function plan(req, res) {
     });
   }
 
-  // Verify cities using MongoDB
-  const cities = await City.find(
-    { name: { $in: [b.source, b.destination] }, available: { $ne: false } }
-  ).lean();
+  // Verify cities using MongoDB with case-insensitive check and fallback
+  const escapeRegex = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  let cities = await City.find({
+    name: {
+      $in: [
+        new RegExp(`^${escapeRegex(source)}$`, 'i'),
+        new RegExp(`^${escapeRegex(destination)}$`, 'i')
+      ]
+    },
+    available: { $ne: false }
+  }).lean();
 
   if (
-    !cities.some(c => c.name === b.source) ||
-    !cities.some(c => c.name === b.destination)
+    !cities.some(c => c.name.toLowerCase() === source.toLowerCase()) ||
+    !cities.some(c => c.name.toLowerCase() === destination.toLowerCase())
   ) {
+    try {
+      const { readData } = await import('../utils/dataStore.js');
+      const fileCities = await readData('cities');
+      cities = fileCities.filter(c =>
+        c.name && (
+          c.name.toLowerCase() === source.toLowerCase() ||
+          c.name.toLowerCase() === destination.toLowerCase()
+        )
+      );
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  const foundSource = cities.find(c => c.name.toLowerCase() === source.toLowerCase());
+  const foundDest = cities.find(c => c.name.toLowerCase() === destination.toLowerCase());
+
+  if (!foundSource || !foundDest) {
     return res.status(400).json({
       message: 'Select cities from the provided list.'
     });
   }
+
+  // Use the canonical matched city names
+  b.source = foundSource.name;
+  b.destination = foundDest.name;
 
   if (b.modes !== undefined && !(Array.isArray(b.modes) && b.modes.length <= 3 && b.modes.every(m => typeof m === 'string' && m.length <= 20))) {
     return res.status(400).json({ message: 'Invalid travel modes.' });

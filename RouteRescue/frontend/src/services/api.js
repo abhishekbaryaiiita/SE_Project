@@ -1,5 +1,5 @@
 import axios from 'axios';
-const api=axios.create({baseURL:import.meta.env.VITE_API_URL||'http://localhost:5000/api'});
+const api=axios.create({baseURL:import.meta.env.VITE_API_URL||'http://localhost:5001/api'});
 
 // SECURITY: token is read from sessionStorage (per-tab), not localStorage (shared by all tabs).
 api.interceptors.request.use(config=>{const token=sessionStorage.getItem('rr_token');if(token)config.headers.Authorization=`Bearer ${token}`;return config;});

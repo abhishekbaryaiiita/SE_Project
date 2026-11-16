@@ -28,7 +28,7 @@
       "destination": "Mumbai",
       "date": "2026-11-06",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -68,7 +68,7 @@
       "destination": "Pune",
       "date": "2026-11-06",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -129,7 +129,7 @@
       "destination": "Pune",
       "date": "2026-11-06",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -150,7 +150,7 @@
       "destination": "Udaipur",
       "date": "2026-11-06",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -170,7 +170,7 @@
       "destination": "Pune",
       "date": "2026-11-06",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -191,7 +191,7 @@
       "destination": "Pune",
       "date": "2026-11-06",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -965,7 +965,7 @@
       "destination": "Delhi",
       "date": "2026-11-07",
       "travellers": 1,
-      "budget": "5000",
+      "budget": "5001",
       "optimization": "balanced",
       "modes": [
         "Bus",
@@ -1853,7 +1853,7 @@
       "destination": "Jaipur",
       "date": "2026-11-16",
       "travellers": 2,
-      "budget": "5000",
+      "budget": "5001",
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -1874,7 +1874,7 @@
       "destination": "Jaipur",
       "date": "2026-11-16",
       "travellers": 2,
-      "budget": "5000",
+      "budget": "5001",
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -1895,7 +1895,7 @@
       "destination": "Jaipur",
       "date": "2026-11-16",
       "travellers": 2,
-      "budget": "5000",
+      "budget": "5001",
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -1916,7 +1916,7 @@
       "destination": "Hyderabad",
       "date": "2026-11-16",
       "travellers": 2,
-      "budget": "5000",
+      "budget": "5001",
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -1958,7 +1958,7 @@
       "destination": "Pune",
       "date": "2026-12-15",
       "travellers": 2,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -1979,7 +1979,7 @@
       "destination": "Pune",
       "date": "2026-12-15",
       "travellers": 2,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -2000,7 +2000,7 @@
       "destination": "Pune",
       "date": "2026-12-15",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "cheapest",
       "modes": [
         "Train"
@@ -2038,7 +2038,7 @@
       "destination": "Bhopal",
       "date": "2026-11-07",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -2058,7 +2058,7 @@
       "destination": "Bhopal",
       "date": "2026-11-07",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -2140,7 +2140,7 @@
       "destination": "Bengaluru",
       "date": "2026-11-07",
       "travellers": 2,
-      "budget": "5000",
+      "budget": "5001",
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -2160,7 +2160,7 @@
       "destination": "Bengaluru",
       "date": "2026-11-07",
       "travellers": 2,
-      "budget": "5000",
+      "budget": "5001",
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -2181,7 +2181,7 @@
       "destination": "Bengaluru",
       "date": "2026-11-07",
       "travellers": 2,
-      "budget": "5000",
+      "budget": "5001",
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -2244,7 +2244,7 @@
       "destination": "Bhopal",
       "date": "2026-11-07",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -2265,7 +2265,7 @@
       "destination": "Bhopal",
       "date": "2026-11-07",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -2286,7 +2286,7 @@
       "destination": "Bhopal",
       "date": "2026-11-07",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -2306,7 +2306,7 @@
       "destination": "Bhopal",
       "date": "2026-11-07",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -2386,7 +2386,7 @@
       "destination": "Indore",
       "date": "2026-11-07",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -2407,7 +2407,7 @@
       "destination": "Goa",
       "date": "2026-11-07",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -2428,7 +2428,7 @@
       "destination": "Goa",
       "date": "2026-11-07",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Bus"
@@ -2527,7 +2527,7 @@
       "destination": "Chennai",
       "date": "2026-12-04",
       "travellers": 5,
-      "budget": "5000",
+      "budget": "5001",
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -2548,7 +2548,7 @@
       "destination": "Chennai",
       "date": "2026-12-04",
       "travellers": 5,
-      "budget": "5000",
+      "budget": "5001",
       "optimization": "balanced",
       "modes": [
         "Train",
@@ -2569,7 +2569,7 @@
       "destination": "Chennai",
       "date": "2026-11-07",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train"
@@ -2648,7 +2648,7 @@
       "destination": "Kolkata",
       "date": "2026-11-14",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "fastest",
       "modes": [
         "Train",
@@ -2668,7 +2668,7 @@
       "destination": "Varanasi",
       "date": "2026-11-07",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train"
@@ -2687,7 +2687,7 @@
       "destination": "Varanasi",
       "date": "2026-11-07",
       "travellers": 1,
-      "budget": 5000,
+      "budget": 5001,
       "optimization": "balanced",
       "modes": [
         "Train"

@@ -432,14 +432,32 @@ function tagHighlights(itineraries) {
 }
 
 export async function generateItineraries(input) {
-  
- const [cityRecords, sampleEdges, hotels] = await Promise.all([
-  City.find({ available: { $ne: false } }).lean(),
-  Transport.find({ available: { $ne: false } }).lean(),
-  Hotel.find({ available: { $ne: false } }).lean()
-]);
+  let [cityRecords, sampleEdges, hotels] = await Promise.all([
+    City.find({ available: { $ne: false } }).lean(),
+    Transport.find({ available: { $ne: false } }).lean(),
+    Hotel.find({ available: { $ne: false } }).lean()
+  ]);
 
-activeCoordinates = { ...CITY_COORDINATES };
+  if (!cityRecords || !cityRecords.length) {
+    try {
+      const { readData } = await import('../utils/dataStore.js');
+      cityRecords = await readData('cities');
+    } catch {}
+  }
+  if (!sampleEdges || !sampleEdges.length) {
+    try {
+      const { readData } = await import('../utils/dataStore.js');
+      sampleEdges = await readData('transport');
+    } catch {}
+  }
+  if (!hotels || !hotels.length) {
+    try {
+      const { readData } = await import('../utils/dataStore.js');
+      hotels = await readData('hotels');
+    } catch {}
+  }
+
+  activeCoordinates = { ...CITY_COORDINATES };
 
 for (const city of cityRecords) {
   const latitude = Number(city.latitude);

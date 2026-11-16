@@ -37,12 +37,14 @@ app.use((err, _req, res, _next) => {
   // Never leak internal error details to the client.
   res.status(status).json({ message: status < 500 ? (err.message || 'Bad request') : 'Internal server error' });
 });
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 import connectDB from "./src/config/db.js";
+import { initDb } from "./src/utils/initDb.js";
 
 connectDB().then(async () => {
   await ensureDataFiles();
+  await initDb();
 
   app.listen(port, () => {
     console.log(`RouteRescue API running at http://localhost:${port}`);
