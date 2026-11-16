@@ -152,10 +152,10 @@ export default function Destinations() {
       <div className="planner-panel" style={{ marginBottom: 24 }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 16, alignItems: 'center' }}>
           <div style={{ position: 'relative' }}>
-            <Search size={18} style={{ position: 'absolute', left: 14, top: 14, color: 'var(--muted)' }} />
+            <Search size={18} style={{ position: 'absolute', left: 15, top: 4, color: 'black' }} />
             <input
               type="text"
-              placeholder="Search destination or state (e.g. Goa, Rajasthan, Jaipur)..."
+              placeholder="Search destination"
               value={search}
               onChange={e => setSearch(e.target.value)}
               style={{ paddingLeft: 42 }}

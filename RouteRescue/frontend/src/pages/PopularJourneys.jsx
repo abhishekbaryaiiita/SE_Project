@@ -159,10 +159,10 @@ export default function PopularJourneys() {
       <div className="planner-panel" style={{ marginBottom: 24 }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 16, alignItems: 'center' }}>
           <div style={{ position: 'relative' }}>
-            <Search size={18} style={{ position: 'absolute', left: 14, top: 14, color: 'var(--muted)' }} />
+            <Search size={18} style={{ position: 'absolute', left: 15, top: 4, color: 'black' }} />
             <input
               type="text"
-              placeholder="Search by city (e.g. Mumbai, Goa, Delhi)..."
+              placeholder="Search by city"
               value={search}
               onChange={e => setSearch(e.target.value)}
               style={{ paddingLeft: 42 }}

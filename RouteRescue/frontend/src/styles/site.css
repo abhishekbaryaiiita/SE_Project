@@ -370,11 +370,38 @@ body {
   width: 100%;
 }
 
+
 .fold-hero {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 60px 24px 40px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 60px max(24px, calc((100vw - 1240px) / 2)) 40px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-color 0.3s ease;
 }
+
+/* Light theme background */
+[data-theme="light"] .fold-hero {
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.72),
+      rgba(255, 255, 255, 0.82)
+    ),
+    url('/Users/abhishekbarya/Desktop/FULL AND FINAL/RouteRescue/frontend/src/styles/image1.png');
+}
+
+/* Dark theme background */
+[data-theme="dark"] .fold-hero {
+  background-image:
+    linear-gradient(
+      rgba(5, 12, 25, 0.65),
+      rgba(5, 12, 25, 0.82)
+    ),
+    url('/Users/abhishekbarya/Desktop/FULL AND FINAL/RouteRescue/frontend/src/styles/image2.png');
+}
+
 
 .fold-hero-header {
   max-width: 860px;
@@ -1932,4 +1959,279 @@ body {
   .metric-row {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+
+
+/* Journey comparison table */
+.results-section .compare-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.results-section .compare-table {
+  width: 100%;
+  min-width: 1100px;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: auto;
+  text-align: left;
+}
+
+.results-section .compare-table th,
+.results-section .compare-table td {
+  padding: 15px 18px;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+.results-section .compare-table th {
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.results-section .compare-table td {
+  font-size: 14px;
+}
+
+.results-section .compare-table td:first-child {
+  min-width: 160px;
+  white-space: normal;
+}
+
+.results-section .compare-table td:nth-child(2) {
+  min-width: 150px;
+}
+
+.results-section .compare-table td b {
+  font-weight: 700;
+}
+
+.results-section .compare-table .over-budget {
+  display: block;
+  color: #ef4444;
+  font-size: 11px;
+}
+
+@media (max-width: 768px) {
+  .results-section .compare-table {
+    min-width: 1100px;
+  }
+
+  .results-section .compare-table th,
+  .results-section .compare-table td {
+    padding: 12px 14px;
+  }
+}
+
+
+
+/* ===== ADMIN DATA TABLE FIX ===== */
+
+.admin-panel {
+  width: 100%;
+  min-width: 0;
+}
+
+.admin-table-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  margin-top: 20px;
+  border: 1px solid var(--border, #293140);
+  border-radius: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.admin-records-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: auto;
+}
+
+.admin-records-table th,
+.admin-records-table td {
+  padding: 14px 20px;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--border, #293140);
+}
+
+.admin-records-table th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--surface, #151821);
+  color: var(--text, #f4f5f7);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.admin-records-table td {
+  color: var(--text, #e5e7eb);
+  font-size: 14px;
+}
+
+.admin-records-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.admin-records-table tbody tr:hover {
+  background: rgba(239, 81, 71, 0.06);
+}
+
+.admin-records-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-records-table th:last-child,
+.admin-records-table td:last-child {
+  text-align: center;
+  width: 100px;
+}
+
+.admin-records-table .icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.admin-records-table .icon-btn:hover {
+  background: rgba(239, 81, 71, 0.12);
+}
+
+@media (max-width: 768px) {
+  .admin-records-table {
+    min-width: 760px;
+  }
+
+  .admin-records-table th,
+  .admin-records-table td {
+    padding: 12px 14px;
+  }
+}
+
+
+/* =====================================
+   ADMIN PANEL - THEME FIX
+===================================== */
+
+/* LIGHT THEME */
+:root[data-theme="light"] .admin-stats .stat-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #172033;
+}
+
+:root[data-theme="light"] .admin-stats .stat-card-content span {
+  color: #64748b;
+}
+
+:root[data-theme="light"] .admin-stats .stat-card-content strong {
+  color: #172033;
+}
+
+:root[data-theme="light"] .admin-panel {
+  background: #ffffff;
+  border-color: #dbe2ea;
+}
+
+:root[data-theme="light"] .admin-records-table th {
+  background: #f1f5f9;
+  color: #172033;
+}
+
+:root[data-theme="light"] .admin-records-table td {
+  background: #ffffff;
+  color: #334155;
+  border-color: #e2e8f0;
+}
+
+:root[data-theme="light"] .admin-records-table tbody tr:hover td {
+  background: #fff5f4;
+}
+
+:root[data-theme="light"] .admin-records-table .icon-btn {
+  color: #dc4035;
+}
+
+:root[data-theme="light"] .admin-tabs button {
+  color: #334155;
+}
+
+
+/* DARK THEME */
+:root[data-theme="dark"] .admin-stats .stat-card {
+  background: #151821;
+  border: 1px solid #293140;
+  color: #f8fafc;
+}
+
+:root[data-theme="dark"] .admin-stats .stat-card-content span {
+  color: #94a3b8;
+}
+
+:root[data-theme="dark"] .admin-stats .stat-card-content strong {
+  color: #f8fafc;
+}
+
+:root[data-theme="dark"] .admin-panel {
+  background: #11141c;
+  border-color: #293140;
+}
+
+:root[data-theme="dark"] .admin-records-table th {
+  background: #1c2230;
+  color: #f8fafc;
+}
+
+:root[data-theme="dark"] .admin-records-table td {
+  background: #11141c;
+  color: #e2e8f0;
+  border-color: #293140;
+}
+
+:root[data-theme="dark"] .admin-records-table tbody tr:hover td {
+  background: #1b202b;
+}
+
+:root[data-theme="dark"] .admin-records-table .icon-btn {
+  color: #ff6257;
+}
+
+:root[data-theme="dark"] .admin-tabs button {
+  color: #e2e8f0;
+}
+
+/* Common table improvements */
+.admin-records-table th,
+.admin-records-table td {
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.admin-records-table .icon-btn {
+  border: none;
+  background: transparent;
+}
+
+.admin-records-table .icon-btn:hover {
+  background: rgba(239, 81, 71, 0.12);
 }

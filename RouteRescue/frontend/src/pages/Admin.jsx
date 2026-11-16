@@ -110,24 +110,31 @@ export default function Admin() {
       {error && <div className="alert error">{error}</div>}
       {message && <div className="alert success">{message}</div>}
 
-      {stats && (
-        <div className="admin-stats">
-          {[
-            ['Users', stats.users, Users],
-            ['Saved journeys', stats.savedJourneys, Route],
-            ['Requests', stats.generatedRequests, Map],
-            ['Cities', stats.cities, Map],
-            ['Connections', stats.connections, Route],
-            ['Hotels', stats.hotels, Hotel]
-          ].map(([label, value, Icon]) => (
-            <div className="stat-card" key={label}>
-              <span><Icon /></span>
-              <small>{label}</small>
-              <b>{value}</b>
-            </div>
-          ))}
+      
+{stats && (
+  <div className="admin-stats">
+    {[
+      ['Users', stats.users, Users],
+      ['Saved Journeys', stats.savedJourneys, Route],
+      ['Requests', stats.generatedRequests, Map],
+      ['Cities', stats.cities, Map],
+      ['Connections', stats.connections, Route],
+      ['Hotels', stats.hotels, Hotel]
+    ].map(([label, value, Icon]) => (
+      <div className="stat-card" key={label}>
+        <div className="stat-card-icon">
+          <Icon size={22} />
         </div>
-      )}
+
+        <div className="stat-card-content">
+          <span>{label}</span>
+          <strong>{value ?? 0}</strong>
+        </div>
+      </div>
+    ))}
+  </div>
+)}
+
 
       <div className="admin-panel">
         <div className="admin-tabs">
@@ -207,8 +214,8 @@ export default function Admin() {
 
         {!canEdit && <h2>{resource === 'users' ? 'Registered users' : 'User feedback'}</h2>}
 
-        <div className="table-scroll">
-          <table>
+        <div className="table-scroll admin-table-scroll">
+       <table className="admin-records-table">
             <thead>
               <tr>
                 {columns.map((column) => <th key={column}>{column}</th>)}

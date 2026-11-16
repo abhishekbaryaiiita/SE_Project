@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { Link, useNavigate } from 'react-router-dom';
 import {
   ArrowLeftRight,
@@ -194,7 +195,7 @@ export default function Home() {
           </div>
 
           <h1 className="fold-hero-title">
-            routes built.
+            Routes built ,
             <span className="fold-accent-line">for your journey.</span>
           </h1>
 
@@ -365,6 +366,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+  
 
       {/* ============================================================
           SECTION 02: Three Kinds of Journey / Travel Tools

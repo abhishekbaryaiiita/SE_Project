@@ -494,15 +494,19 @@ function money(value) {
   return `₹${Number(value || 0).toLocaleString('en-IN')}`;
 }
 
+
 function ComparisonTable({ results, previousPlan }) {
-  const rows = previousPlan ? [previousPlan, ...results] : results;
+  const rows = previousPlan
+    ? [previousPlan, ...results]
+    : results;
 
   return (
-    <div className="table-scroll compare-wrap" style={{ marginBottom: 24 }}>
+    <div className="table-scroll compare-wrap">
       <table className="compare-table">
         <thead>
           <tr>
             <th>Plan Category</th>
+            <th>Route</th>
             <th>Total / Person</th>
             <th>Group Total</th>
             <th>Duration</th>
@@ -512,28 +516,55 @@ function ComparisonTable({ results, previousPlan }) {
             <th>Hotel Cost</th>
           </tr>
         </thead>
+
         <tbody>
           {rows.map((item, index) => {
             const saved = previousPlan && index === 0;
+
             return (
               <tr key={saved ? `saved-${item.id}` : item.id}>
                 <td>
-                  <b>{saved ? 'Previous plan' : (item.highlights?.join(', ') || item.name)}</b>
-                  <small>{[item.source, ...(item.intermediateCities || []), item.destination].join(' → ')}</small>
+                  <b>
+                    {saved
+                      ? 'Previous Plan'
+                      : item.highlights?.join(', ') || item.name}
+                  </b>
                 </td>
+
+                <td>
+                  {[item.source, ...(item.intermediateCities || []), item.destination]
+                    .join(' → ')}
+                </td>
+
                 <td>
                   <b>{money(item.totalPerPerson)}</b>
-                  {item.withinBudget === false && <small style={{ color: '#ef4444' }}> · Over budget</small>}
+                  {item.withinBudget === false && (
+                    <small className="over-budget">
+                      Over budget
+                    </small>
+                  )}
                 </td>
+
                 <td>{money(item.totalGroupCost)}</td>
-                <td>{Number(item.elapsedDurationHours || 0).toFixed(1)} hrs</td>
-                <td>{item.transfers === 0 ? 'Direct' : `${item.transfers} stop(s)`}</td>
+
+                <td>
+                  {Number(item.elapsedDurationHours || 0).toFixed(1)} hrs
+                </td>
+
+                <td>
+                  {item.transfers === 0
+                    ? 'Direct'
+                    : `${item.transfers} stop(s)`}
+                </td>
+
                 <td>{money(item.transportationCostPerPerson)}</td>
+
                 <td>
                   {item.accommodation?.nights
                     ? `${item.accommodation.city} (${item.accommodation.nights} nt)`
                     : 'None'}
                 </td>
+
                 <td>{money(item.accommodation?.totalPerPerson)}</td>
               </tr>
             );
@@ -543,3 +574,4 @@ function ComparisonTable({ results, previousPlan }) {
     </div>
   );
 }
+
