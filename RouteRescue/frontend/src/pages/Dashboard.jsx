@@ -75,6 +75,8 @@ export default function Dashboard() {
           <p>
             Welcome to your RouteRescue dashboard. Review your itineraries, track travel budgets, or launch a new journey.
           </p>
+
+          <br></br>
         </div>
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
           <Link to="/planner" className="btn btn-primary">
@@ -87,6 +89,8 @@ export default function Dashboard() {
           )}
         </div>
       </div>
+
+      <br></br>
 
       {/* High Level Stats Grid */}
       <div className="stat-grid">
